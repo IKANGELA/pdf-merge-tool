@@ -27,7 +27,7 @@ python polacz_pdf.py
 ## Build Windows executable
 ```bash
 pip install pyinstaller
-pyinstaller --onefile --windowed --name "PDF Merge Tool" polacz_pdf.py
+pyinstaller --onefile --windowed --name "PDF Merge Tool" --icon "assets/icon.ico" --add-data "assets/icon.ico;assets" polacz_pdf.py
 ```
 
 The executable will be generated in the `dist` folder.

@@ -1,7 +1,13 @@
 from pathlib import Path
+import sys
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 from pypdf import PdfWriter
+
+
+def resource_path(relative_path: str):
+    base_dir = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parent))
+    return base_dir / relative_path
 
 
 def get_default_folders():
@@ -94,6 +100,12 @@ def choose_pdf_files(initial_dir: Path | None = None):
 def build_gui():
     root = tk.Tk()
     root.title("Łączenie PDF")
+    icon_path = resource_path("assets/icon.ico")
+    if icon_path.exists():
+        try:
+            root.iconbitmap(default=str(icon_path))
+        except tk.TclError:
+            pass
     root.geometry("820x450")
     root.resizable(False, False)
     root.configure(bg="#f2eadf")
