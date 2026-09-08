@@ -179,7 +179,6 @@ def build_gui():
         output_path = Path(target_var.get()) / normalize_output_name(output_var.get())
         if output_path.exists():
             try:
-                output_path.open("rb")
                 import os
                 os.startfile(str(output_path))
             except Exception as exc:
@@ -242,5 +241,4 @@ def build_gui():
 
 
 if __name__ == "__main__":
-    get_default_folders()
     build_gui()
